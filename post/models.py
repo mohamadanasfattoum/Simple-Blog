@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 
 
 class Post(models.Model):
@@ -14,6 +14,7 @@ class Post(models.Model):
     content = models.TextField(max_length=1000, verbose_name='محتوى المنشور')
     likes = models.IntegerField ( default=0 , verbose_name='الاعجاب')
     dislikes = models.IntegerField ( default=0 , verbose_name='عدم الاعجاب')
+    date = models.DateTimeField(default=timezone.now)
 
     class Meta:
         verbose_name = 'المنشور'
@@ -22,5 +23,11 @@ class Post(models.Model):
 
     def __str__(self):
          return self.title
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, verbose_name='المنشور')
+    comment = models.TextField(max_length=1000, verbose_name='التعليق')
+    date = models.DateTimeField(default=timezone.now)
 
     
