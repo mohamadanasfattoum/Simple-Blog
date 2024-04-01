@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-
+from django.contrib.auth.models import User
 
 class Post(models.Model):
     POST_TYPE_CHOICES = (
@@ -15,6 +15,7 @@ class Post(models.Model):
     likes = models.IntegerField ( default=0 , verbose_name='الاعجاب')
     dislikes = models.IntegerField ( default=0 , verbose_name='عدم الاعجاب')
     date = models.DateTimeField(default=timezone.now)
+    auther = models.ForeignKey(User, related_name='post_auther', on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name = 'المنشور'
@@ -26,6 +27,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    auther = models.ForeignKey(User, related_name='comment_auther', on_delete=models.SET_NULL, null=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, verbose_name='المنشور')
     comment = models.TextField(max_length=1000, verbose_name='التعليق')
     date = models.DateTimeField(default=timezone.now)
