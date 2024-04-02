@@ -34,4 +34,9 @@ class Comment(models.Model):
     comment = models.TextField(max_length=1000, verbose_name='التعليق')
     date = models.DateTimeField(default=timezone.now)
 
+
+    class Meta:
+        verbose_name = 'التعليق'
+        verbose_name_plural = 'التعليقات'
+
     
