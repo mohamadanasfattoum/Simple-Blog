@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from taggit.managers import TaggableManager
 
 class Post(models.Model):
     POST_TYPE_CHOICES = (
@@ -16,6 +17,7 @@ class Post(models.Model):
     dislikes = models.IntegerField ( default=0 , verbose_name='عدم الاعجاب')
     date = models.DateTimeField(default=timezone.now)
     auther = models.ForeignKey(User, related_name='post_auther', on_delete=models.SET_NULL, null=True)
+    tags = TaggableManager()
 
     class Meta:
         verbose_name = 'المنشور'
