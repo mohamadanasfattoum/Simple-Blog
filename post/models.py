@@ -18,7 +18,7 @@ class Post(models.Model):
     date = models.DateTimeField(default=timezone.now)
     auther = models.ForeignKey(User, related_name='post_auther', on_delete=models.SET_NULL, null=True)
     tags = TaggableManager()
-    image = models.ImageField(upload_to= 'posts', null=True, verbose_name='الصورة')
+    image = models.ImageField(upload_to= 'post', null=True, verbose_name='الصورة')
 
     class Meta:
         verbose_name = 'المنشور'
