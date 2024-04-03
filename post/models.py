@@ -30,11 +30,13 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    auther = models.ForeignKey(User, related_name='comment_auther', on_delete=models.SET_NULL, null=True)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, verbose_name='المنشور')
+    auther = models.ForeignKey(User, related_name='comment_auther', on_delete=models.CASCADE, null=True)
+    post = models.ForeignKey(Post, related_name='comment_post', on_delete=models.CASCADE, verbose_name='المنشور')
     comment = models.TextField(max_length=1000, verbose_name='التعليق')
     date = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+         return str(self.post)
 
     class Meta:
         verbose_name = 'التعليق'
