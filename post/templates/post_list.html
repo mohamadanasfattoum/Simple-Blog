@@ -1,7 +1,7 @@
 
 <li>
     {% for post in posts  %}
-            {{post.p_type}}-{{post}}
+            {{post.p_type}}- <a href="/posts/{{post.id}}">{{post}}</a>
             <br><br><br>
             {{post.content}}-{{post.likes}}
             <br><br><br><br><br><br>

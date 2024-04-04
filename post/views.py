@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from .models import Post
 from .form import PostForm
-
+# redirect to go to another page
 
 def post_list(request):
     posts_data = Post.objects.all()
@@ -36,3 +36,11 @@ def edit_post(request, post_id):
         form = PostForm(instance=post_data) # we need instance to edit the same data 
     
     return render (request, 'edit_post.html', {'form':form})
+
+
+
+def delete_post(request, post_id):
+    post_data = Post.objects.get(id=post_id)
+    post_data.delete()
+
+    return redirect ('/posts/')
