@@ -22,3 +22,17 @@ def add_post(request):
         form = PostForm()
     
     return render (request, 'add_post.html', {'form':form})
+
+
+
+def edit_post(request, post_id):
+    post_data = Post.objects.get(id=post_id)
+
+    if request.method == 'POST':
+        form = PostForm(request.POST,request.FILES, instance=post_data)
+        if form.is_valid():
+            form.save()
+    else:
+        form = PostForm(instance=post_data) # we need instance to edit the same data 
+    
+    return render (request, 'edit_post.html', {'form':form})
