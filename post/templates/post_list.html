@@ -1,13 +1,9 @@
+<hr>
+<a href="/posts/add">Add Post</a>
+<hr>
 
+{% for post in posts  %}
 <li>
-    {% for post in posts  %}
-            {{post.p_type}}- <a href="/posts/{{post.id}}">{{post}}</a>
-            <br><br><br>
-            {{post.content}}-{{post.likes}}
-            <br><br><br><br><br><br>
-            <img src="{{post.image.url}}" alt=""> 
-            {{post.date}}
-
-            
-    {% endfor %}
+            {{post.p_type}}- <a href="/posts/{{post.id}}">{{post}}</a> <br> <br>            
 </li>
+{% endfor %}

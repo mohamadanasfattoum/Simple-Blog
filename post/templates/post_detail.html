@@ -1,11 +1,19 @@
-
+<hr>
+<a href="/posts/">Posts</a>
+<hr>
 <a href="/posts/{{post.id}}/delete">Delete Post</a>
 <hr>
+<a href="/posts/{{post.id}}/edit">Edit Post</a>
+<hr>
 
-{{post.p_type}}-{{post}}
-<br><br><br>
-{{post.content}}-{{post.likes}}
-<br><br><br><br><br><br>
+<h1>Type:{{post.p_type}}</h1>
+<br>
+<h4>Title:{{post}}</h4> 
+<br>
+<p>Content:{{post.content}}</p>
+{{post.likes}}
+<br>Date:{{post.date}}
+<br>
 <img src="{{post.image.url}}" alt=""> 
 {{post.date}}
 

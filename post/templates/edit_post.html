@@ -1,5 +1,9 @@
 <h1>Edit Post</h1>
 
+<a href="/posts/{{post.id}}">{{post}}</a>
+<hr>
+<a href="/posts/">Posts</a>
+
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{form}}

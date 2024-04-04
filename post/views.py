@@ -18,6 +18,8 @@ def add_post(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            return redirect ('/posts/')
+
     else:
         form = PostForm()
     
@@ -32,6 +34,7 @@ def edit_post(request, post_id):
         form = PostForm(request.POST,request.FILES, instance=post_data)
         if form.is_valid():
             form.save()
+            return redirect (f'/posts/{post_data.id}')
     else:
         form = PostForm(instance=post_data) # we need instance to edit the same data 
     
