@@ -10,7 +10,7 @@ def post_list(request):
 
 def post_detail(request,post_id):
     post_data = Post.objects.get(id=post_id)
-    comment_data = Comment.objects.all()
+    comment_data = Comment.objects.filter(post=post_data) # used filter to just comment for the same post(post data in template = post_data)
     return render (request,'post_detail.html', {'post':post_data, 'comment':comment_data})
     
 
