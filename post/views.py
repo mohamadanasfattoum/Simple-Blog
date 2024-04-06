@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from .models import Post
+from .models import Post , Comment
 from .form import PostForm
 # redirect to go to another page
 
@@ -10,7 +10,8 @@ def post_list(request):
 
 def post_detail(request,post_id):
     post_data = Post.objects.get(id=post_id)
-    return render (request,'post_detail.html', {'post':post_data})
+    comment_data = Comment.objects.all()
+    return render (request,'post_detail.html', {'post':post_data, 'comment':comment_data})
     
 
 def add_post(request):

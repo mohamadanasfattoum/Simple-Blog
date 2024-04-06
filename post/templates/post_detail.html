@@ -1,3 +1,4 @@
+
 <hr>
 <a href="/posts/">Posts</a>
 <hr>
@@ -5,6 +6,9 @@
 <hr>
 <a href="/posts/{{post.id}}/edit">Edit Post</a>
 <hr>
+<br><br>
+<br><br>
+
 
 <h1>Type:{{post.p_type}}</h1>
 <br>
@@ -14,7 +18,26 @@
 {{post.likes}}
 <br>Date:{{post.date}}
 <br>
+
+{% if post.image %}
 <img src="{{post.image.url}}" alt=""> 
+
+{% endif %}
+    
 {{post.date}}
+
+<hr>
+
+
+    <ul>
+        {% for comment in comment %}
+            
+            <p>{{comment.comment}}</p>                 
+
+        {% endfor %}
+    </ul>
+
+
+    
 
             
