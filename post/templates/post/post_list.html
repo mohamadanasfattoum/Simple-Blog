@@ -2,7 +2,7 @@
 <a href="/posts/add">Add Post</a>
 <hr>
 
-{% for post in posts  %}
+{% for post in post_list  %}
 <li>
             {{post.p_type}}- <a href="/posts/{{post.id}}">{{post}}</a> <br> <br>            
 </li>

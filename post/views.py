@@ -48,3 +48,8 @@ def delete_post(request, post_id):
     post_data.delete()
 
     return redirect ('/posts/')
+
+
+# L-13
+# The Comment objects related to the post_data are retrieved and stored in the comment_data variable. 
+# The filter method is used to retrieve only the comments associated with the same post.
