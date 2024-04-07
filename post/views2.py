@@ -9,3 +9,8 @@ class PostList(ListView):
     model = Post
     template_name = "post_list.html"
 
+
+class PostDetail(DetailView):
+    model = Post
+    
+
