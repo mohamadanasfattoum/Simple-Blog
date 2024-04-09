@@ -35,4 +35,10 @@ class UpdatePost(UpdateView):
         # Return the URL with the pk parameter
         return reverse('post_detail', kwargs={'pk': obj.pk})
 
+
+class DeletePost(DeleteView):
+    model = Post
+    fields = '__all__'
+    success_url = '/posts/'
+
         
