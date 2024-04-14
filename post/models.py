@@ -7,25 +7,23 @@ from django.utils.text import slugify
 
 class Post(models.Model):
     POST_TYPE_CHOICES = (
-        ('question','سؤال'),
-        ('post','منشور'),
-        ('article','مقالة'),
+        ('question','Question'),
+        ('post','Post'),
+        ('article','Article'),
     )
 
     p_type =  models.CharField(max_length=500, choices=POST_TYPE_CHOICES, verbose_name='نوع المنشور')
-    title =  models.CharField(max_length=500, verbose_name='عنوان المنشور')
-    content = models.TextField(max_length=1000, verbose_name='محتوى المنشور')
-    likes = models.IntegerField ( default=0 , verbose_name='الاعجاب')
-    dislikes = models.IntegerField ( default=0 , verbose_name='عدم الاعجاب')
+    title =  models.CharField(max_length=500, verbose_name='Title')
+    content = models.TextField(max_length=1000, verbose_name='content')
     date = models.DateTimeField(default=timezone.now)
     auther = models.ForeignKey(User, related_name='post_auther', on_delete=models.SET_NULL, null=True)
     tags = TaggableManager()
-    image = models.ImageField(upload_to= 'post', null=True, verbose_name='الصورة')
+    image = models.ImageField(upload_to= 'post', null=True, verbose_name='Image')
     slug = models.SlugField(null=True, blank=True)
 
     class Meta:
-        verbose_name = 'المنشور'
-        verbose_name_plural = 'المنشورات'
+        verbose_name = 'Post'
+        verbose_name_plural = 'Posts'
 
 
     def __str__(self):
@@ -37,15 +35,15 @@ class Post(models.Model):
 
 class Comment(models.Model):
     auther = models.ForeignKey(User, related_name='comment_auther', on_delete=models.CASCADE, null=True)
-    post = models.ForeignKey(Post, related_name='comment_post', on_delete=models.CASCADE, verbose_name='المنشور')
-    comment = models.TextField(max_length=1000, verbose_name='التعليق')
+    post = models.ForeignKey(Post, related_name='comment_post', on_delete=models.CASCADE, verbose_name='Post')
+    comment = models.TextField(max_length=1000, verbose_name='Comment')
     date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
          return str(self.post)
 
     class Meta:
-        verbose_name = 'التعليق'
-        verbose_name_plural = 'التعليقات'
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comments'
 
     
