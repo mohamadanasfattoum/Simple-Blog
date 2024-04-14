@@ -28,14 +28,15 @@
 
 <hr>
 
-
+{% if comment %}
     <ul>
         {% for comment in comment %}
-            
-            <p>{{comment.comment}}</p>                 
-
+            <li>{{ comment.comment }}</li>
         {% endfor %}
     </ul>
+{% else %}
+    <p>No comments yet.</p>
+{% endif %}
 
 
     

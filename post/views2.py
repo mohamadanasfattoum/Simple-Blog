@@ -2,7 +2,7 @@
 
 from django.views.generic import *
 from django.urls import reverse
-from .models import Post
+from .models import Post, Comment
 from django.utils.text import slugify
 
 # ListView, DetailView, CreateView, UpdateView,  DeleteView
@@ -15,6 +15,14 @@ class PostList(ListView):
 
 class PostDetail(DetailView):
     model = Post
+    context_object_name = 'post'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+        comment = post.comment_post.all()
+        context['comment'] = comment
+        return context
     
 
 
