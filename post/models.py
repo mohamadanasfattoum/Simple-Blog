@@ -12,7 +12,7 @@ class Post(models.Model):
         ('article','Article'),
     )
 
-    p_type =  models.CharField(max_length=500, choices=POST_TYPE_CHOICES, verbose_name='نوع المنشور')
+    p_type =  models.CharField(max_length=500, choices=POST_TYPE_CHOICES, verbose_name='Post Type')
     title =  models.CharField(max_length=500, verbose_name='Title')
     content = models.TextField(max_length=1000, verbose_name='content')
     date = models.DateTimeField(default=timezone.now)
@@ -43,7 +43,7 @@ class Comment(models.Model):
          return str(self.post)
 
     class Meta:
-        verbose_name = 'Comment'
+        verbose_name = 'Comments'
         verbose_name_plural = 'Comments'
 
     

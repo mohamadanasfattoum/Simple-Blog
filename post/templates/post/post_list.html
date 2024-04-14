@@ -29,7 +29,8 @@
               <img src="{{post.image.url}}" alt="Image" class="img-fluid">
             </a>
             <div>
-              <span class="date">{{post.date}} &bullet; <a href="/posts/{{post.slug}}">{{post.p_type}}</a></span>
+              <span class="date">{{post.date|date:"D d M Y"}}</span>
+              <a href="/posts/{{post.slug}}">{{post.p_type}}</a>
               <h2><a href="/posts/{{post.slug}}">{{post}}</a></h2>
               <p><a href="/posts/{{post.slug}}" class="btn btn-sm btn-outline-primary">Read More</a></p>
             </div>
