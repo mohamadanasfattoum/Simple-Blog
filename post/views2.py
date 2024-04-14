@@ -34,7 +34,7 @@ class CreatePost(CreateView):
 
 class UpdatePost(UpdateView):
     model = Post
-    fields = '__all__'
+    fields = ('p_type', 'title', 'content', 'image', 'tags')
     template_name = 'post/edit_post.html'
     # success_url = '/posts/{pk}'
     def get_success_url(self):

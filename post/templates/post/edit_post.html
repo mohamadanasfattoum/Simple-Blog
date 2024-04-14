@@ -1,12 +1,23 @@
-<h1>Edit Post</h1>
+{% extends "base.html" %}
+{% load static %}
 
-<a href="/posts/{{post.slug}}">{{post}}</a>
-<hr>
-<a href="/posts/">Posts</a>
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit" value="Edit">
-    
-</form>
+{% block body %}
+
+
+
+ <div class="container">
+    <div class="comment-form-wrap py-5">
+        
+        <h3 class="mb-5">Edit Post</h3>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Edit">
+            
+        </form>
+    </div>
+</div>
+
+  {% endblock body %}
