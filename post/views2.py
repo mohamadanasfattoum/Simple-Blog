@@ -28,7 +28,7 @@ class PostDetail(DetailView):
 
 class CreatePost(CreateView):
     model = Post
-    fields = '__all__'
+    fields = ('p_type', 'title', 'content', 'image', 'tags')
     success_url = '/posts/'
 
 

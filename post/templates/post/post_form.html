@@ -1,7 +1,22 @@
-<h1>Add new post</h1>
+{% extends "base.html" %}
+{% load static %}
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit">
-</form>
+
+{% block body %}
+
+
+
+
+<div class="comment-form-wrap pt-5">
+    
+    <h3 class="mb-5">Add a post</h3>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Post">
+        
+    </form>
+
+
+  {% endblock body %}
