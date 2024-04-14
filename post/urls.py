@@ -11,14 +11,14 @@ urlpatterns = [
     path('posts/add',CreatePost.as_view()),
 
     # path('posts/<int:post_id>',PostDetail), # views.py
-    path('posts/<int:pk>',PostDetail.as_view(), name='post_detail'), # pk oder slug
+    path('posts/<slug:slug>',PostDetail.as_view(), name='post_detail'), # pk oder slug
 
     # path('posts/<int:post_id>/edit',edit_post),
-    path('posts/<int:pk>/edit',UpdatePost.as_view()),
+    path('posts/<slug:slug>/edit',UpdatePost.as_view()),
 
 
     # path('posts/<int:post_id>/delete',delete_post)
-    path('posts/<int:pk>/delete',DeletePost.as_view())
+    path('posts/<slug:slug>/delete',DeletePost.as_view())
 
 
 ]

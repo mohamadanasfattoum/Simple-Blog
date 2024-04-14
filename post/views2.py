@@ -3,6 +3,7 @@
 from django.views.generic import *
 from django.urls import reverse
 from .models import Post
+from django.utils.text import slugify
 
 # ListView, DetailView, CreateView, UpdateView,  DeleteView
 
@@ -31,9 +32,10 @@ class UpdatePost(UpdateView):
     def get_success_url(self):
         # Retrieve the object being updated
         obj = self.get_object()
+        slug = slugify(obj.title)  # Generate the slug using the post title
         
         # Return the URL with the pk parameter
-        return reverse('post_detail', kwargs={'pk': obj.pk})
+        return reverse('post_detail', kwargs={'slug':slug})
 
 
 class DeletePost(DeleteView):
