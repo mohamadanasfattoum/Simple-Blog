@@ -28,18 +28,18 @@ def add_post(request):
 
 
 
-def edit_post(request, post_id):
-    post_data = Post.objects.get(id=post_id)
+def edit_post(request, slug):
+    post_data = Post.objects.get(slug=slug)
 
     if request.method == 'POST':
         form = PostForm(request.POST,request.FILES, instance=post_data)
         if form.is_valid():
             form.save()
-            return redirect (f'/posts/{post_data.id}')
+            return redirect (f'/posts/{post_data.slug}')
     else:
         form = PostForm(instance=post_data) # we need instance to edit the same data 
     
-    return render (request, 'edit_post.html', {'form':form})
+    return render (request, 'post/edit_post.html', {'form':form})
 
 
 

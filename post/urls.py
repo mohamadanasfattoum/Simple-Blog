@@ -13,8 +13,8 @@ urlpatterns = [
     # path('posts/<int:post_id>',PostDetail), # views.py
     path('posts/<slug:slug>',PostDetail.as_view(), name='post_detail'), # pk oder slug
 
-    # path('posts/<int:post_id>/edit',edit_post),
-    path('posts/<slug:slug>/edit',UpdatePost.as_view()),
+    path('posts/<slug:slug>/edit',edit_post),
+    # path('posts/<slug:slug>/edit',UpdatePost.as_view()),
 
 
     # path('posts/<int:post_id>/delete',delete_post)
