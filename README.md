@@ -3,6 +3,10 @@
 
 Welcome to the Simple-Blog project! This is a social media app blog developed using Python, Django, Bootstrap 5, Slugify, and taggit.
 
+### Project Screenshot
+![](https://github.com/mohamadanasfattoum/Simple-Blog/blob/main/screencapture.png)
+
+
 ## About
 
 The Simple-Blog project is designed to provide users with a platform to create and share blog posts. It utilizes the Django framework for backend development, allowing for easy management of posts, user authentication, and more. The frontend is built using Bootstrap 5, providing a clean and responsive user interface. Additionally, the taggit library is integrated to enable tagging of blog posts, making it easier to organize and search for content.
