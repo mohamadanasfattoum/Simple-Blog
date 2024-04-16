@@ -1,7 +1,7 @@
 
 # Social-Media-App Blog
 
-Welcome to the Simple-Blog project! This is a social media app blog developed using Python, Django, Bootstrap 5, and taggit.
+Welcome to the Simple-Blog project! This is a social media app blog developed using Python, Django, Bootstrap 5, Slugify, and taggit.
 
 ## About
 
