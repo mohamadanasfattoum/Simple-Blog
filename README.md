@@ -4,7 +4,7 @@
 Welcome to the Simple-Blog project! This is a social media app blog developed using Python, Django, Bootstrap 5, Slugify, and taggit.
 
 ### Project Screenshot
-![https://github.com/mohamadanasfattoum/Simple-Blog/blob/main/screencapture.png]()
+![](https://github.com/mohamadanasfattoum/Simple-Blog/blob/main/screencapture.png)
 
 
 ## About
